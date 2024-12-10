@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_vibrate/flutter_vibrate.dart';
+import 'package:haptic_feedback/haptic_feedback.dart';
 
-VoidCallback useHapticFeedback() {
+VoidCallback useHapticFeedback([HapticsType type = HapticsType.heavy]) {
   return () async {
     try {
-      if (await Vibrate.canVibrate) {
-        Vibrate.feedback(FeedbackType.heavy);
+      if (await Haptics.canVibrate()) {
+        Haptics.vibrate(type);
       }
     } catch (e) {
       // deliberately left empty
