@@ -73,6 +73,11 @@
 
     </section>
     
+<section class="desc markdown">
+  <p>Allows to call any cleanup/dispose functions on Singletons saved inside of <code>useRef</code> hook.</p>
+<pre class="language-dart"><code class="language-dart">final controller = useDisposableRef(TabController(), onDispose: (tabController) =&gt; tabController.dispose());
+</code></pre>
+</section>
 
 
     
@@ -117,7 +122,7 @@
 <footer>
   <span class="no-break">
     grow_hooks
-      0.0.1
+      0.0.3
   </span>
 
   

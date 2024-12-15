@@ -72,6 +72,15 @@
 
     </section>
     
+<section class="desc markdown">
+  <p>Periodically rerenders widget by internally incrementing <code>useState</code> value.
+Note that duration value can't be changed during the lifecycle of this hook.</p>
+<pre class="language-dart"><code class="language-dart">final key = usePeriodicRerender(const Duration(seconds: 1), isEnabled: true);
+print(key); // 0
+wait(const Duration(seconds: 1));
+print(key); // 1
+</code></pre>
+</section>
 
 
     
@@ -123,7 +132,7 @@
 <footer>
   <span class="no-break">
     grow_hooks
-      0.0.1
+      0.0.3
   </span>
 
   

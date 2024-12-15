@@ -70,6 +70,14 @@
 
     </section>
     
+<section class="desc markdown">
+  <p>Forces widget rerender by internally incrementing <code>useState</code> value.</p>
+<pre class="language-dart"><code class="language-dart">final (rerender, key) = useRerender();
+print(key); // 0
+rerender(); // 0
+print(key); // 1
+</code></pre>
+</section>
 
 
     
@@ -111,7 +119,7 @@
 <footer>
   <span class="no-break">
     grow_hooks
-      0.0.1
+      0.0.3
   </span>
 
   

@@ -1,3 +1,8 @@
+## [0.0.3] - Switch vibrate package
+
+- Add `useLocale` and `useValueChangedHapticFeedback` hooks
+- Add `dartdoc` to all hooks
+
 ## [0.0.2] - Switch vibrate package
 
 - Replace `flutter-vibrate` with `haptic_feedback` package

@@ -88,7 +88,7 @@
 
 </dt>
 <dd>
-  
+  Allows to call any cleanup/dispose functions on Singletons saved inside of <code>useRef</code> hook.
   
 
 </dd>
@@ -101,7 +101,7 @@
 
 </dt>
 <dd>
-  
+  Simple Record wrapper around <code>useFocusNode</code> and <code>useTextEditingController</code> hooks.
   
 
 </dd>
@@ -114,7 +114,7 @@
 
 </dt>
 <dd>
-  
+  Wrapper hook around <code>haptic_feedback</code> library.
   
 
 </dd>
@@ -127,7 +127,7 @@
 
 </dt>
 <dd>
-  
+  Simple wrapper around Navigator.of(context).pop(); with generic return type support
   
 
 </dd>
@@ -140,7 +140,7 @@
 
 </dt>
 <dd>
-  
+  Calls a provided callback after widget mounts into widget tree.
   
 
 </dd>
@@ -153,7 +153,8 @@
 
 </dt>
 <dd>
-  
+  Calls a provided callback after widget mounts into widget tree.
+Difference between <code>useOnMount</code> is that provided callback is wrapped inside <code>addPostFrameCallback</code> callback
   
 
 </dd>
@@ -166,7 +167,7 @@
 
 </dt>
 <dd>
-  
+  Calls a provided callback before widget is unmounted from widget tree.
   
 
 </dd>
@@ -179,7 +180,8 @@
 
 </dt>
 <dd>
-  
+  Periodically rerenders widget by internally incrementing <code>useState</code> value.
+Note that duration value can't be changed during the lifecycle of this hook.
   
 
 </dd>
@@ -192,7 +194,8 @@
 
 </dt>
 <dd>
-  
+  Simple wrapper around <code>useEffect</code> hook. The only difference that inner callback is wrapped inside <code>addPostFrameCallback</code>.
+Note that since we are wrapping our callback inside <code>addPostFrameCallback</code>, there is no cleanup function support.
   
 
 </dd>
@@ -205,7 +208,8 @@
 
 </dt>
 <dd>
-  
+  Simple wrapper around <code>useRef</code>, but emitting value instead of ObjectRef.
+Use this in case you want a singleton instance of some class or other data structur.
   
 
 </dd>
@@ -218,7 +222,7 @@
 
 </dt>
 <dd>
-  
+  Forces widget rerender by internally incrementing <code>useState</code> value.
   
 
 </dd>
@@ -231,7 +235,8 @@
 
 </dt>
 <dd>
-  
+  Automatically synchronizes changing value into <code>useRef</code> hook.
+Usefull in case you want to save some derived data inside of useRef, keeping previous value, etc..
   
 
 </dd>
@@ -244,7 +249,22 @@
 
 </dt>
 <dd>
+  Automatically calls a provided void callback when value changes.
+Callback is not fired during the initial render.
   
+
+</dd>
+
+          <dt id="useValueChangedHapticFeedback" class="callable">
+  <span class="name"><a href="../grow_hooks/useValueChangedHapticFeedback.html">useValueChangedHapticFeedback</a></span><span class="signature">(<wbr><span class="parameter" id="useValueChangedHapticFeedback-param-value"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">value</span>, [</span><span class="parameter" id="useValueChangedHapticFeedback-param-type"><span class="type-annotation"><a href="https://pub.dev/documentation/haptic_feedback/0.5.1+1/haptic_feedback/HapticsType.html">HapticsType</a></span> <span class="parameter-name">type</span> = <span class="default-value">HapticsType.heavy</span></span>])
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Wrapper hook around <code>haptic_feedback</code> library. Provides a haptic feedback anytime provided value changes.
+Doesn't get called on initial render.
   
 
 </dd>
@@ -287,7 +307,7 @@
 <footer>
   <span class="no-break">
     grow_hooks
-      0.0.1
+      0.0.3
   </span>
 
   

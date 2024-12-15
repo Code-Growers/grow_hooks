@@ -70,6 +70,12 @@
 
     </section>
     
+<section class="desc markdown">
+  <p>Simple wrapper around Navigator.of(context).pop(); with generic return type support</p>
+<pre class="language-dart"><code class="language-dart">final pop = useNavigatorPop&lt;bool&gt;();
+pop(true);
+</code></pre>
+</section>
 
 
     
@@ -79,10 +85,8 @@
   final context = useContext();
 
   return ({T? returnData}) {
-    try {
+    if (context.mounted) {
       Navigator.of(context).pop(returnData);
-    } catch (_) {
-      &#47;&#47; context might be dead
     }
   };
 }</code></pre>
@@ -118,7 +122,7 @@
 <footer>
   <span class="no-break">
     grow_hooks
-      0.0.1
+      0.0.3
   </span>
 
   

@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the useSyncedRef function from the grow_hooks library, for the Dart programming language.">
-  <title>useSyncedRef function - grow_hooks library - Dart API</title>
+  <meta name="description" content="API docs for the useValueChangedHapticFeedback function from the grow_hooks library, for the Dart programming language.">
+  <title>useValueChangedHapticFeedback function - grow_hooks library - Dart API</title>
 
 
   
@@ -30,9 +30,9 @@
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../index.html">grow_hooks</a></li>
     <li><a href="../grow_hooks/grow_hooks-library.html">grow_hooks.dart</a></li>
-    <li class="self-crumb">useSyncedRef&lt;<wbr><span class="type-parameter">T</span>&gt; function</li>
+    <li class="self-crumb">useValueChangedHapticFeedback function</li>
   </ol>
-  <div class="self-name">useSyncedRef</div>
+  <div class="self-name">useValueChangedHapticFeedback</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -56,28 +56,26 @@
       data-above-sidebar="grow_hooks&#47;grow_hooks-library-sidebar.html"
       data-below-sidebar="">
       <div>
-<h1><span class="kind-function">useSyncedRef&lt;<wbr><span class="type-parameter">T</span>&gt;</span> function 
+<h1><span class="kind-function">useValueChangedHapticFeedback</span> function 
  
 </h1></div>
 
     <section class="multi-line-signature">
         
 
-<span class="returntype"><a href="https://pub.dev/documentation/flutter_hooks/0.20.5/flutter_hooks/ObjectRef-class.html">ObjectRef</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
-<span class="name ">useSyncedRef</span>&lt;<wbr><span class="type-parameter">T</span>&gt;(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="useSyncedRef-param-value"><span class="type-annotation">T</span> <span class="parameter-name">value</span></span></li>
-</ol>)
+<span class="returntype">void</span>
+<span class="name ">useValueChangedHapticFeedback</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="useValueChangedHapticFeedback-param-value"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">value</span>, [</span></li>
+<li><span class="parameter" id="useValueChangedHapticFeedback-param-type"><span class="type-annotation"><a href="https://pub.dev/documentation/haptic_feedback/0.5.1+1/haptic_feedback/HapticsType.html">HapticsType</a></span> <span class="parameter-name">type</span> = <span class="default-value">HapticsType.heavy</span></span></li>
+</ol>])
 
         
 
     </section>
     
 <section class="desc markdown">
-  <p>Automatically synchronizes changing value into <code>useRef</code> hook.
-Usefull in case you want to save some derived data inside of useRef, keeping previous value, etc..</p>
-<pre class="language-dart"><code class="language-dart">final ref = useSyncedRef(true);
-print(ref.value); // true
-final ref = useSyncedRef(false);
-print(ref.value); // false
+  <p>Wrapper hook around <code>haptic_feedback</code> library. Provides a haptic feedback anytime provided value changes.
+Doesn't get called on initial render.</p>
+<pre class="language-dart"><code class="language-dart">useValueChangedHapticFeedback(true, HapticsType.success);
 </code></pre>
 </section>
 
@@ -85,14 +83,13 @@ print(ref.value); // false
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">ObjectRef&lt;T&gt; useSyncedRef&lt;T&gt;(T value) {
-  final ref = useRef(value);
-  useEffect(() {
-    ref.value = value;
-    return null;
-  }, [value]);
-
-  return ref;
+  <pre class="language-dart"><code class="language-dart">void useValueChangedHapticFeedback(Object? value,
+    [HapticsType type = HapticsType.heavy]) {
+  final feedback = useHapticFeedback(type);
+  useValueChanged(value, (_, __) {
+    feedback();
+    return false;
+  });
 }</code></pre>
 </section>
 
@@ -110,7 +107,7 @@ print(ref.value); // false
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../index.html">grow_hooks</a></li>
     <li><a href="../grow_hooks/grow_hooks-library.html">grow_hooks</a></li>
-    <li class="self-crumb">useSyncedRef&lt;<wbr><span class="type-parameter">T</span>&gt; function</li>
+    <li class="self-crumb">useValueChangedHapticFeedback function</li>
 </ol>
 
 

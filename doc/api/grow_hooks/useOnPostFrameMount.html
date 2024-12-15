@@ -71,6 +71,14 @@
 
     </section>
     
+<section class="desc markdown">
+  <p>Calls a provided callback after widget mounts into widget tree.
+Difference between <code>useOnMount</code> is that provided callback is wrapped inside <code>addPostFrameCallback</code> callback</p>
+<pre class="language-dart"><code class="language-dart">useOnPostFrameMount(() {
+  print('called after post frame callback on widget mounted');
+});
+</code></pre>
+</section>
 
 
     
@@ -116,7 +124,7 @@
 <footer>
   <span class="no-break">
     grow_hooks
-      0.0.1
+      0.0.3
   </span>
 
   

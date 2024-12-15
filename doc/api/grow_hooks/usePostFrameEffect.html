@@ -72,6 +72,14 @@
 
     </section>
     
+<section class="desc markdown">
+  <p>Simple wrapper around <code>useEffect</code> hook. The only difference that inner callback is wrapped inside <code>addPostFrameCallback</code>.
+Note that since we are wrapping our callback inside <code>addPostFrameCallback</code>, there is no cleanup function support.</p>
+<pre class="language-dart"><code class="language-dart">usePostFrameEffect(() {
+  print('keys have changed and I'm called after PostFrame');
+}, [true]);
+</code></pre>
+</section>
 
 
     
@@ -117,7 +125,7 @@
 <footer>
   <span class="no-break">
     grow_hooks
-      0.0.1
+      0.0.3
   </span>
 
   
