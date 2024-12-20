@@ -1,4 +1,8 @@
-## [0.0.3] - Switch vibrate package
+## [0.0.4] - Bump flutter-hooks
+
+- Use `flutter-hooks` pre version to fix flutter 3.27 issues
+
+## [0.0.3] - New hooks
 
 - Add `useLocale` and `useValueChangedHapticFeedback` hooks
 - Add `dartdoc` to all hooks
