@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the usePeriodicRerender function from the grow_hooks library, for the Dart programming language.">
-  <title>usePeriodicRerender function - grow_hooks library - Dart API</title>
+  <meta name="description" content="API docs for the useToggle function from the grow_hooks library, for the Dart programming language.">
+  <title>useToggle function - grow_hooks library - Dart API</title>
 
 
   
@@ -26,9 +26,9 @@
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../index.html">grow_hooks</a></li>
     <li><a href="../grow_hooks/grow_hooks-library.html">grow_hooks.dart</a></li>
-    <li class="self-crumb">usePeriodicRerender function</li>
+    <li class="self-crumb">useToggle function</li>
   </ol>
-  <div class="self-name">usePeriodicRerender</div>
+  <div class="self-name">useToggle</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -51,15 +51,14 @@
       data-above-sidebar="grow_hooks&#47;grow_hooks-library-sidebar.html"
       data-below-sidebar="">
       <div>
-<h1><span class="kind-function">usePeriodicRerender</span> function 
+<h1><span class="kind-function">useToggle</span> function 
  
 </h1></div>
 
     <section class="multi-line-signature">
         
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
-<span class="name ">usePeriodicRerender</span>(<wbr><ol class="parameter-list"> <li><span class="parameter" id="usePeriodicRerender-param-duration"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Duration-class.html">Duration</a></span> <span class="parameter-name">duration</span>, {</span></li>
-<li><span class="parameter" id="usePeriodicRerender-param-isEnabled"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isEnabled</span> = <span class="default-value">true</span>, </span></li>
+<span class="returntype">(<span class="field"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>, </span><span class="field"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/VoidCallback.html">VoidCallback</a></span></span>)</span>
+<span class="name ">useToggle</span>(<wbr>{<ol class="parameter-list"> <li><span class="parameter" id="useToggle-param-initial"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">initial</span> = <span class="default-value">false</span>, </span></li>
 </ol>})
 
         
@@ -67,12 +66,11 @@
     </section>
     
 <section class="desc markdown">
-  <p>Periodically rerenders widget by internally incrementing <code>useState</code> value.
-Note that duration value can't be changed during the lifecycle of this hook.</p>
-<pre class="language-dart"><code class="language-dart">final key = usePeriodicRerender(const Duration(seconds: 1), isEnabled: true);
-print(key); // 0
-wait(const Duration(seconds: 1));
-print(key); // 1
+  <p>Easily manage a boolean state</p>
+<pre class="language-dart"><code class="language-dart">final (isToggled, toggle) = useToggle(initial: false);
+print(isToggled); // false
+toggle();
+print(isToggled); // true
 </code></pre>
 </section>
 
@@ -80,19 +78,9 @@ print(key); // 1
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">String usePeriodicRerender(Duration duration, {bool isEnabled = true}) {
-  final (rerender, key) = useRerender();
-  useEffect(() {
-    if (!isEnabled) {
-      return null;
-    }
-    final timer = Timer.periodic(duration, (timer) {
-      rerender();
-    });
-    return () =&gt; timer.cancel();
-  }, [isEnabled]);
-
-  return key;
+  <pre class="language-dart"><code class="language-dart">(bool, VoidCallback) useToggle({bool initial = false}) {
+  final toggle = useState&lt;bool&gt;(initial);
+  return (toggle.value, () =&gt; toggle.value = !toggle.value);
 }</code></pre>
 </section>
 
@@ -108,7 +96,7 @@ print(key); // 1
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../index.html">grow_hooks</a></li>
     <li><a href="../grow_hooks/grow_hooks-library.html">grow_hooks</a></li>
-    <li class="self-crumb">usePeriodicRerender function</li>
+    <li class="self-crumb">useToggle function</li>
 </ol>
 
     <h5>grow_hooks library</h5>

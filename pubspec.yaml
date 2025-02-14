@@ -1,6 +1,6 @@
 name: grow_hooks
 description: Reusable set of Flutter hooks used across our multiple projects.
-version: 0.0.4
+version: 0.0.5
 repository: https://github.com/Code-Growers/grow_hooks
 issue_tracker: https://github.com/Code-Growers/grow_hooks/issues
 homepage: https://codegrowers.tech

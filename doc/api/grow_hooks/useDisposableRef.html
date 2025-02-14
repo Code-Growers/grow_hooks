@@ -16,15 +16,11 @@
   <link rel="stylesheet" href="../static-assets/github.css?v1">
   <link rel="stylesheet" href="../static-assets/styles.css?v1">
   <link rel="icon" href="../static-assets/favicon.png?v1">
-
   
 </head>
 
-
 <body data-base-href="../" data-using-base-href="false" class="light-theme">
-
 <div id="overlay-under-drawer"></div>
-
 <header id="title">
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
@@ -49,7 +45,6 @@
   </div>
 </header>
 <main>
-
   <div
       id="dartdoc-main-content"
       class="main-content"
@@ -62,9 +57,10 @@
 
     <section class="multi-line-signature">
         
-
 <span class="returntype">T</span>
 <span class="name ">useDisposableRef</span>&lt;<wbr><span class="type-parameter">T</span>&gt;(<wbr><ol class="parameter-list"> <li><span class="parameter" id="useDisposableRef-param-instance"><span class="type-annotation">T</span> <span class="parameter-name">instance</span>, {</span></li>
+<li><span class="parameter" id="useDisposableRef-param-onMount"><span class="type-annotation">dynamic</span> <span class="parameter-name">onMount</span>(<ol class="parameter-list single-line"> <li><span class="parameter" id="param-"><span class="type-annotation">T</span></span></li>
+</ol>)?, </span></li>
 <li><span class="parameter" id="useDisposableRef-param-onDispose"><span class="type-annotation">dynamic</span> <span class="parameter-name">onDispose</span>(<ol class="parameter-list single-line"> <li><span class="parameter" id="param-"><span class="type-annotation">T</span></span></li>
 </ol>)?, </span></li>
 </ol>})
@@ -75,7 +71,7 @@
     
 <section class="desc markdown">
   <p>Allows to call any cleanup/dispose functions on Singletons saved inside of <code>useRef</code> hook.</p>
-<pre class="language-dart"><code class="language-dart">final controller = useDisposableRef(TabController(), onDispose: (tabController) =&gt; tabController.dispose());
+<pre class="language-dart"><code class="language-dart">final controller = useDisposableRef(TabController(), onMount: (tabController) =&gt; print('mounted'),  onDispose: (tabController) =&gt; tabController.dispose());
 </code></pre>
 </section>
 
@@ -83,10 +79,20 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">T useDisposableRef&lt;T&gt;(T instance, {Function(T)? onDispose}) {
+  <pre class="language-dart"><code class="language-dart">T useDisposableRef&lt;T&gt;(
+  T instance, {
+  Function(T)? onMount,
+  Function(T)? onDispose,
+}) {
   final instanceRef = useRef&lt;T&gt;(instance);
 
-  useEffect(() =&gt; () =&gt; onDispose?.call(instanceRef.value), []);
+  useEffect(
+    () {
+      onMount?.call(instanceRef.value);
+      return () =&gt; onDispose?.call(instanceRef.value);
+    },
+    [],
+  );
 
   return instanceRef.value;
 }</code></pre>
@@ -94,7 +100,6 @@
 
 
   </div> <!-- /.main-content -->
-
   <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
     <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
@@ -102,40 +107,30 @@
     <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
 </header>
-
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../index.html">grow_hooks</a></li>
     <li><a href="../grow_hooks/grow_hooks-library.html">grow_hooks</a></li>
     <li class="self-crumb">useDisposableRef&lt;<wbr><span class="type-parameter">T</span>&gt; function</li>
 </ol>
 
-
     <h5>grow_hooks library</h5>
     <div id="dartdoc-sidebar-left-content"></div>
   </div><!--/.sidebar-offcanvas-left-->
-
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
   </div><!--/.sidebar-offcanvas-->
-
 </main>
-
 <footer>
   <span class="no-break">
     grow_hooks
-      0.0.3
+      0.0.5
   </span>
-
   
 </footer>
-
 
 
 <script src="../static-assets/highlight.pack.js?v1"></script>
 <script src="../static-assets/docs.dart.js"></script>
 
-
-
 </body>
-
 </html>
 

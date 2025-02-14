@@ -16,15 +16,11 @@
   <link rel="stylesheet" href="../static-assets/github.css?v1">
   <link rel="stylesheet" href="../static-assets/styles.css?v1">
   <link rel="icon" href="../static-assets/favicon.png?v1">
-
   
 </head>
 
-
 <body data-base-href="../" data-using-base-href="false" class="light-theme">
-
 <div id="overlay-under-drawer"></div>
-
 <header id="title">
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
@@ -48,7 +44,6 @@
   </div>
 </header>
 <main>
-
 <div
     id="dartdoc-main-content"
     class="main-content"
@@ -78,10 +73,9 @@
 
     <section class="summary offset-anchor" id="functions">
       <h2>Functions</h2>
-
       <dl class="callables">
           <dt id="useDisposableRef" class="callable">
-  <span class="name"><a href="../grow_hooks/useDisposableRef.html">useDisposableRef</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="useDisposableRef-param-instance"><span class="type-annotation">T</span> <span class="parameter-name">instance</span>, {</span><span class="parameter" id="useDisposableRef-param-onDispose"><span class="type-annotation">dynamic</span> <span class="parameter-name">onDispose</span>(<span class="parameter" id="param-"><span class="type-annotation">T</span></span>)?</span>})
+  <span class="name"><a href="../grow_hooks/useDisposableRef.html">useDisposableRef</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="useDisposableRef-param-instance"><span class="type-annotation">T</span> <span class="parameter-name">instance</span>, {</span><span class="parameter" id="useDisposableRef-param-onMount"><span class="type-annotation">dynamic</span> <span class="parameter-name">onMount</span>(<span class="parameter" id="param-"><span class="type-annotation">T</span></span>)?, </span><span class="parameter" id="useDisposableRef-param-onDispose"><span class="type-annotation">dynamic</span> <span class="parameter-name">onDispose</span>(<span class="parameter" id="param-"><span class="type-annotation">T</span></span>)?</span>})
     <span class="returntype parameter">&#8594; T</span>
   </span>
   
@@ -115,6 +109,35 @@
 </dt>
 <dd>
   Wrapper hook around <code>haptic_feedback</code> library.
+  
+
+</dd>
+
+          <dt id="useInterval" class="callable">
+  <span class="name"><a href="../grow_hooks/useInterval.html">useInterval</a></span><span class="signature">(<wbr><span class="parameter" id="useInterval-param-callback"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/VoidCallback.html">VoidCallback</a></span> <span class="parameter-name">callback</span>, </span><span class="parameter" id="useInterval-param-duration"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Duration-class.html">Duration</a></span> <span class="parameter-name">duration</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Periodically trigger a callback when duration elapses
+Callback can be changed during the lifecycle, which it refresh the timer
+Make sure that it's memoized correctly
+  
+
+</dd>
+
+          <dt id="useLocale" class="callable">
+  <span class="name"><a href="../grow_hooks/useLocale.html">useLocale</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-ui/Locale-class.html">Locale</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  return locale from Localizations provider
+Throws in case Localizations provider is not found within the widget tree scope
   
 
 </dd>
@@ -229,7 +252,7 @@ Use this in case you want a singleton instance of some class or other data struc
 
           <dt id="useSyncedRef" class="callable">
   <span class="name"><a href="../grow_hooks/useSyncedRef.html">useSyncedRef</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="useSyncedRef-param-value"><span class="type-annotation">T</span> <span class="parameter-name">value</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://pub.dev/documentation/flutter_hooks/0.20.5/flutter_hooks/ObjectRef-class.html">ObjectRef</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+    <span class="returntype parameter">&#8594; <a href="https://pub.dev/documentation/flutter_hooks/0.21.1-pre.4/flutter_hooks/ObjectRef-class.html">ObjectRef</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
   </span>
   
 
@@ -237,6 +260,32 @@ Use this in case you want a singleton instance of some class or other data struc
 <dd>
   Automatically synchronizes changing value into <code>useRef</code> hook.
 Usefull in case you want to save some derived data inside of useRef, keeping previous value, etc..
+  
+
+</dd>
+
+          <dt id="useTimeout" class="callable">
+  <span class="name"><a href="../grow_hooks/useTimeout.html">useTimeout</a></span><span class="signature">(<wbr><span class="parameter" id="useTimeout-param-callback"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/VoidCallback.html">VoidCallback</a></span> <span class="parameter-name">callback</span>, </span><span class="parameter" id="useTimeout-param-duration"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Duration-class.html">Duration</a></span> <span class="parameter-name">duration</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Trigger a callback when duration elapses
+  
+
+</dd>
+
+          <dt id="useToggle" class="callable">
+  <span class="name"><a href="../grow_hooks/useToggle.html">useToggle</a></span><span class="signature">(<wbr>{<span class="parameter" id="useToggle-param-initial"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">initial</span> = <span class="default-value">false</span></span>})
+    <span class="returntype parameter">&#8594; (<span class="field"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>, </span><span class="field"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/VoidCallback.html">VoidCallback</a></span></span>)</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Easily manage a boolean state
   
 
 </dd>
@@ -273,9 +322,7 @@ Doesn't get called on initial render.
     </section>
 
 
-
   </div> <!-- /.main-content -->
-
   <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
     <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
@@ -283,12 +330,10 @@ Doesn't get called on initial render.
     <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
 </header>
-
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../index.html">grow_hooks</a></li>
     <li class="self-crumb">grow_hooks.dart</li>
 </ol>
-
 
     <h5><span class="package-name">grow_hooks</span> <span class="package-kind">package</span></h5>
     <ol>
@@ -297,30 +342,22 @@ Doesn't get called on initial render.
 </ol>
 
   </div>
-
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
     <h5>grow_hooks library</h5>
   </div><!--/sidebar-offcanvas-right-->
-
 </main>
-
 <footer>
   <span class="no-break">
     grow_hooks
-      0.0.3
+      0.0.5
   </span>
-
   
 </footer>
-
 
 
 <script src="../static-assets/highlight.pack.js?v1"></script>
 <script src="../static-assets/docs.dart.js"></script>
 
-
-
 </body>
-
 </html>
 

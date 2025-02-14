@@ -1,3 +1,8 @@
+## [0.0.5] - New hooks
+
+- Add `useTimeout`, `useInterval` and `useToggle` hooks
+- Add `onMount` callback to `useDisposableRef`
+
 ## [0.0.4] - Bump flutter-hooks
 
 - Use `flutter-hooks` pre version to fix flutter 3.27 issues
