@@ -1,3 +1,7 @@
+## [0.1.0] - Update rerender hooks return
+
+- `useRerender`, `usePeriodicRerender` now return int key
+
 ## [0.0.5] - New hooks
 
 - Add `useTimeout`, `useInterval` and `useToggle` hooks

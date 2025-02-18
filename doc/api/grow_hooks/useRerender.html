@@ -57,7 +57,7 @@
 
     <section class="multi-line-signature">
         
-<span class="returntype">(<span class="field"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/VoidCallback.html">VoidCallback</a></span>, </span><span class="field"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span></span>)</span>
+<span class="returntype">(<span class="field"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/VoidCallback.html">VoidCallback</a></span>, </span><span class="field"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span></span>)</span>
 <span class="name ">useRerender</span>(<wbr>)
 
         
@@ -77,9 +77,9 @@ print(key); // 1
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">(VoidCallback, String) useRerender() {
+  <pre class="language-dart"><code class="language-dart">(VoidCallback, int) useRerender() {
   final index = useState(0);
-  return (() =&gt; index.value = index.value + 1, index.toString());
+  return (() =&gt; index.value = index.value + 1, index.value);
 }</code></pre>
 </section>
 
@@ -107,7 +107,7 @@ print(key); // 1
 <footer>
   <span class="no-break">
     grow_hooks
-      0.0.5
+      0.1.0
   </span>
   
 </footer>
