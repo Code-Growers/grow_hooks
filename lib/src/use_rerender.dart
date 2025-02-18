@@ -10,9 +10,9 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 /// rerender(); // 0
 /// print(key); // 1
 /// ```
-(VoidCallback, String) useRerender() {
+(VoidCallback, int) useRerender() {
   final index = useState(0);
-  return (() => index.value = index.value + 1, index.toString());
+  return (() => index.value = index.value + 1, index.value);
 }
 
 /// Periodically rerenders widget by internally incrementing `useState` value.
@@ -23,7 +23,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 /// wait(const Duration(seconds: 1));
 /// print(key); // 1
 /// ```
-String usePeriodicRerender(Duration duration, {bool isEnabled = true}) {
+int usePeriodicRerender(Duration duration, {bool isEnabled = true}) {
   final (rerender, key) = useRerender();
   useEffect(() {
     if (!isEnabled) {
