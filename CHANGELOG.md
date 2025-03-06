@@ -1,3 +1,7 @@
+## [0.1.1] - Update dependencies
+
+- Update `flutter_hooks` dependency
+
 ## [0.1.0] - Update rerender hooks return
 
 - `useRerender`, `usePeriodicRerender` now return int key
