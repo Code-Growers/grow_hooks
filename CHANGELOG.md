@@ -1,3 +1,7 @@
+## [0.1.2] - New hooks
+
+- Add `useOnMountHaptic` hook
+
 ## [0.1.1] - Update dependencies
 
 - Update `flutter_hooks` dependency

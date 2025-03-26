@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:haptic_feedback/haptic_feedback.dart';
 
+import './use_on_mount.dart';
+
 /// Wrapper hook around `haptic_feedback` library.
 /// ```dart
 /// final successFeedback = useHapticFeedback(HapticsType.success);
@@ -31,4 +33,13 @@ void useValueChangedHapticFeedback(Object? value,
     feedback();
     return false;
   });
+}
+
+/// Wrapper hook around `haptic_feedback` library. Provides a haptic feedback when widget mounts.
+/// ```dart
+/// useOnMountHaptic(HapticsType.success);
+/// ```
+void useOnMountHaptic([HapticsType type = HapticsType.heavy]) {
+  final feedback = useHapticFeedback(type);
+  useOnPostFrameMount(feedback);
 }
