@@ -7,13 +7,17 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 /// Callback can be changed during the lifecycle, which it refresh the timer
 /// Make sure that it's memoized correctly
 /// ```dart
-/// useInterval(() => print('elapsed'), const Duration(seconds: 1));
+/// useInterval(() => print('elapsed'), const Duration(seconds: 1), enabled: true);
 /// ```
-void useInterval(VoidCallback callback, Duration duration) {
+void useInterval(VoidCallback callback, Duration duration,
+    {bool enabled = true}) {
   useEffect(() {
-    final timer = Timer.periodic(duration, (_) {
-      callback();
-    });
-    return () => timer.cancel();
-  }, [callback]);
+    if (enabled) {
+      final timer = Timer.periodic(duration, (_) {
+        callback();
+      });
+      return () => timer.cancel();
+    }
+    return null;
+  }, [callback, enabled]);
 }
