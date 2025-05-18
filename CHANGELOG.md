@@ -1,3 +1,7 @@
+## [0.1.3] - New hooks
+
+- Add **enabled** param to `useInterval` hook
+
 ## [0.1.2] - New hooks
 
 - Add `useOnMountHaptic` hook
